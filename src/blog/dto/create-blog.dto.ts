@@ -5,9 +5,9 @@ export class CreateBlogDto {
   title: string;
 
   @IsString()
+  shortDescription: string;
+
+  @IsString()
   content: string;
 
-  @IsBoolean()
-  @IsOptional()
-  published?: boolean;
 }

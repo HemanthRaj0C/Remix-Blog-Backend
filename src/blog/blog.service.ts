@@ -23,7 +23,7 @@ export class BlogService {
         author: {
           select: {
             id: true,
-            name: true,
+            username: true,
             email: true,
           },
         },
@@ -38,7 +38,7 @@ export class BlogService {
         author: {
           select: {
             id: true,
-            name: true,
+            username: true,
             email: true,
           },
         },
@@ -102,7 +102,7 @@ export class BlogService {
         author: {
           select: {
             id: true,
-            name: true,
+            username: true,
             email: true,
           },
         },

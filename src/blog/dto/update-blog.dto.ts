@@ -7,9 +7,10 @@ export class UpdateBlogDto {
 
   @IsString()
   @IsOptional()
+  shortDescription?: string;
+
+  @IsString()
+  @IsOptional()
   content?: string;
 
-  @IsBoolean()
-  @IsOptional()
-  published?: boolean;
 }

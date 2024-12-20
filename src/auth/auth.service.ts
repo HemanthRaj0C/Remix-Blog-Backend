@@ -41,7 +41,6 @@ export class AuthService {
             // Return token
             return this.signToken(user.id, user.email);
         } catch (error) {
-            console.error('Login error:', error);
             throw error;
         }
     }
@@ -54,9 +53,9 @@ export class AuthService {
             // Create user
             const user = await this.prisma.user.create({
                 data: {
+                    username: dto.username,
                     email: dto.email,
                     password: hashedPassword,
-                    name: dto.name,
                 },
             });
 
@@ -68,17 +67,16 @@ export class AuthService {
                     throw new ForbiddenException('Email already exists');
                 }
             }
-            console.error('Registration error:', error);
             throw error;
         }
     }
 
     private async signToken(
-        userId: number,
+        id: number,
         email: string
     ): Promise<{ access_token: string }> {
         const payload = {
-            sub: userId,
+            sub: id,
             email,
         };
 
